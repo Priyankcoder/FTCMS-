@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap');
+
+.container{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.content{
+    margin: 90px;
+    padding: 30px;
+    color: rgb(2, 6, 255);
+    padding-left: 0;
+    font-family: 'Uncial Antiqua', crusive;
+}
+#main_image{
+    border-radius: 100px;
+}
+.headname{
+    color: black !important;
+}
+.contentblock{
+    display: flex;
+
+}
+.backgroundimage{
+    position: absolute;
+    opacity: 0.5;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-position: center;
+
+}
