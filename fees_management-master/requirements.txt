@@ -1,0 +1,5 @@
+
+Django==2.1.1
+django-inline-svg==0.1.1
+pytz==2018.5
+djangorestframework==3.8.2

@@ -1,0 +1,16 @@
+@import 'color';
+@import 'fonts';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
