@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load svg %}
+
+{% block other_stylesheets %}
+<link rel="stylesheet" href="{% static 'dist/css/sweetalert2.min.css' %}">
+<link rel="stylesheet" href="{% static 'dist/css/dashboard.css' %}">
+{% endblock other_stylesheets %}
+
+{% block content %}
+<header class="page-header">
+    <div class="wrapper">
+        <h1>Dashboard</h1>
+        <div class="content">
+            <div class="user">Hello, <span>{{ request.user }}</span></div>
+            <a href="/logout"><button type="button" class="logout-button">LOGOUT</button></a>
+        </div>
+    </div>
+</header>
+<div class="flex-container">
+    <aside class="side-content">
+        {% if request.path|length > 11 %}
+        <h5 data-list="all-students"><a href="/dashboard">All Students</a></h5>
+        {% else %}
+        <h5 data-list="all-students" class="active">All Students</h5>
+        {% endif %}
+        <h5 class="courses-heading">Courses <span class="icon">{% svg 'down-chevron' %}</span></h5>
+        <ul class="courses-content">
+            {% for course in course %}
+            <li class="list">
+                <div class="label">{{ course.name }} <span class="icon">{% svg 'down-chevron' %}</span></div>
+                {% if course.branch_set.all  %}
+                <ul>
+                    {% for branch in course.branch_set.all %}
+                    <li class="sub-list"><a href="{{ branch.pk }}">{{ branch.name }}</a></li>
+                    {% endfor %}
+                </ul>   
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <h5 data-list="fees">Fees</h5>
+    </aside>
+    <div class="focus-content">
+        <header class="sub-header">
+            <h3>{% if request.path|length > 11 %}{{ heading.branch.name }}{% endif %}</h3>
+            {% if request.user.is_superuser %}
+            <button type="button" id="action-button">Action{% svg 'add' %}</button>
+            {% endif %}
+        </header>
+        <table data-tab="all-students" class="data-table show">
+            <tr>
+                <th>USN</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Father's Name</th>
+                <th>Parent's Number</th>
+                <th>Branch</th>
+            </tr>
+            {% for student in students %}
+            <tr class="row" data-id="{{ student.pk }}">
+                <td>{{ student.usn }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.phone }}</td>
+                <td>{{ student.father_name }}</td>
+                <td>{{ student.parents_number }}</td>
+                <td>{{ student.branch.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table data-tab="fees" class="data-table">
+            <tr>
+                <th>Student</th>
+                <th>Name</th>
+                <th>Tax</th>
+                <th>Payment</th>
+                <th>Timestamp</th>
+                <th>Bank</th>
+                <th>Order_no</th>
+            </tr>
+            {% for fee in fees %}
+            <tr class="row" data-id="{{ fee.pk }}">
+                <td>{{ fee.student }}</td>
+                <td>{{ fee.name }}</td>
+                <td>{{ fee.tax }}</td>
+                <td>{{ fee.payment }}</td>
+                <td>{{ fee.timestamp }}</td>   
+                <td>{{ fee.bank }}</td>
+                <td>{{ fee.order_no }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="dark-overlay">
+    <div class="close-action">
+        {% svg 'close' %}
+    </div>
+    <ul class="tabs">
+        <li data-tab="student">Student</li>
+        <li data-tab="fees">Fees</li>
+        <li data-tab="course">Course</li>
+        <li data-tab="branch">Branch</li>
+    </ul>
+    <form class="show" data-target="student">
+        {% csrf_token %}
+        <fieldset>
+            <label>
+                <span>Student USN</span>
+                <input type="text" name="usn" autocomplete="off">
+            </label>
+            <label>
+                <span>Student Name</span>
+                <input type="text" name="student-name" autocomplete="off">
+            </label>
+            <label>
+                <span>Student Phone</span>
+                <input type="number" name="phone" autocomplete="off">
+            </label>
+            <label>
+                <span>Student Father's Name</span>
+                <input type="text" name="father" autocomplete="off">
+            </label>
+            <label>
+                <span>Student Mother's Name</span>
+                <input type="text" name="mother" autocomplete="off">
+            </label>
+            <label>
+                <span>Student parent's Number</span>
+                <input type="number" name="parents-number" autocomplete="off">
+            </label>
+            <label>
+                <span>Student Address</span>
+                <textarea name="address" cols="30" rows="10" autocomplete="off"></textarea>
+            </label>
+            <label>
+                <span>Student branch</span>
+                <select name="branch">
+                    <option value="none">--SELECT COURSE--</option>
+                    {% for branch in branch %}
+                    <option value="{{ branch.pk }}">{{ branch }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>
+                <span>Student Sem</span>
+                <select name="sem">
+                    <option value="1">First</option>
+                    <option value="2">Second</option>
+                    <option value="3">Third</option>
+                    <option value="4">Fourth</option>
+                    <option value="5">Fifth</option>
+                    <option value="6">Sixth</option>
+                    <option value="7">Seventh</option>
+                    <option value="8">Eight</option>
+                </select>
+            </label>
+        </fieldset>
+        <button type="button" id="submit-student">SUBMIT</button>
+    </form>
+    <form data-target="fees" action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <label class="student-fees-name">
+                <span>Student</span>
+                <select name="fees-student">
+                    <option value="none">--SELECT STUDENT--</option>
+                    {% for student in students %}
+                    <option value="{{ student.pk }}">{{ student.name }} [ {{ student.usn }} ]</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <section class="fees-entry">
+                <label>
+                    <span>Name</span>
+                    <input type="text" name="fees-name" autocomplete="off">
+                </label>
+                <label>
+                    <span>Tax</span>
+                    <input type="number" name="fees-tax" autocomplete="off">
+                </label>
+                <label>
+                    <span>Payment</span>
+                    <input type="number" name="fees-payment">
+                </label>
+                <label>
+                    <span>Bank</span>
+                    <input type="text" name="bank">
+                </label>
+                <label>
+                    <span>order_no</span>
+                    <input type="text" value="{{ random_value }}">
+                </label>
+            </section>
+        </fieldset>
+        <button type="submit" id="submit-fees" value="submit">SUBMIT</button>
+    </form>
+    <form data-target="course">
+        {% csrf_token %}
+        <fieldset>
+            <label>
+                <span>Course Name</span>
+                <input type="text" name="course-name" autocomplete="off">
+            </label>
+        </fieldset>
+        <button type="button" id="submit-course">SUBMIT</button>
+    </form>
+    <form data-target="branch">
+        {% csrf_token %}
+        <fieldset>
+            <label>
+                <span>Branch Name</span>
+                <input type="text" name="branch-name" autocomplete="off">
+            </label>
+            <label>
+                <span>Course</span>
+                <select name="branch-course">
+                    {% for course in course %}
+                    <option value="{{ course.pk }}">{{ course }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </fieldset>
+        <button type="button" id="submit-branch">SUBMIT</button>
+    </form>
+</div>
+{% endblock content %}
+
+{% block other_footers %}
+<script src="{% static 'dist/js/sweetalert2.min.js' %}"></script>
+<script src="{% static 'dist/js/dashboard.js' %}"></script>
+<script src="{% static 'dist/js/edit_student.js' %}"></script>
+{% endblock other_footers %}

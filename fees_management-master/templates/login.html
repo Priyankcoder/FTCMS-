@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block other_stylesheets %}
+<link rel="stylesheet" href="{% static 'dist/css/login.css' %}">
+{% endblock other_stylesheets %}
+
+{% block content %}
+<section id="login-content">
+    <form method=POST>
+        {% csrf_token %}
+        <fieldset>
+            <label>
+                <span>Username</span>
+                <input type="text" name="username">
+            </label>
+            <label>
+                <span>Password</span>
+                <input type="password" name="password">
+            </label>
+            <button type="submit">SUBMIT</button>
+            <p class="error-message">{{ error }}</p>
+        </fieldset>
+    </form>
+</section>
+{% endblock content %}
+
+{% block other_footers %}
+<script src="{% static 'dist/js/login.js' %}"></script>
+{% endblock other_footers %}
