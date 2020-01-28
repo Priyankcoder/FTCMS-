@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Andaman College</title>
+</head>
+<body onload="myFunction()" >
+  
+    <!--<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <p class="navbar-brand " >Andaman College</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a  class="nav-link" href="#">Home</a>
+            </li>
+        
+            <li class="nav-item">
+                <a  class="nav-link" href="#">Login</a>
+            </li>
+        
+   
+
+        <li class="nav-item">
+            <div class="dropdown">           
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">Contacts</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item dropdown" href="#">Phone</a>
+                                <a class="dropdown-item dropdown" href="https://mail.google.com/path">E-Mail</a>
+                                <a class="dropdown-item dropdown" href="https://instagram.google.com/path">Instagram</a>
+                                <a class="dropdown-item dropdown" href="https://facebook.google.com/path">Facebook</a>
+                             </div>
+                        
+                         </div>
+                        </li>
+                      
+
+
+
+    </nav>
+   <div class="image">
+    <img  src = "collegeImage.jpeg " alt="collegeImage">
+</div>
+   <!---<div id="demo" class="carousel slide" data-ride="carousel">
+
+       
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+      
+       
+        <div class="carousel-inner image">
+          <div class="carousel-item active">
+            <img class="img" src="collegeImage.jpeg" alt="collegeImage">
+          </div>
+          <div class="carousel-item">
+            <img src="dep1.jpg" alt="Store">
+          </div>
+          <div class="carousel-item">
+            <img src="dep3.jpg" alt="Billing">
+          </div>
+        </div>
+    
+      
+        <
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      
+      </div>
+    -->
+    <!--
+      <footer class="footer">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+            <h3>Address:</h3>
+                <p>XYZ, Andaman</p>
+            
+            </div>
+
+        </div>
+    </footer>
+-->
+<div id="loader"></div>
+
+<div class="backgroundimage">
+<img src="resizedimage.jpg" alt="backgroundImage">
+</div>
+<div class="main_header animated bounce">
+    
+
+    <nav class="navbar navbar-expand-sm  ">
+    <p class="navbar-brand " ><span id="main_image"><img src="navbar_image.png" ></span><h2 class="headname">Andaman College</h2></p>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a  class="nav-link text-dark" href="#">Home</a>
+        </li>
+    
+        
+        <li class="nav-item">
+        <div class="dropdown">
+          <button class=" btn btn-dark dropdown-toggle" data-toggle="dropdown" type="button">Login</button>
+         <div class="dropdown-menu">
+          <button><a class="dropdown-item dropdown open-button" href="#"  onclick="openForm()">Student Login</a></button>
+          <a class="dropdown-item dropdown" href="#">Admin Login</a>
+        </div>
+
+      
+        </li>
+        <form class="form-inline" action="/action_page.php">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+       
+        </div>
+      <!---<li class="nav-item">
+            <div class="dropdown">           
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">Contacts</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item dropdown" href="#">Phone</a>
+                                <a class="dropdown-item dropdown" href="https://mail.google.com/path">E-Mail</a>
+                                <a class="dropdown-item dropdown" href="https://instagram.google.com/path">Instagram</a>
+                                <a class="dropdown-item dropdown" href="https://facebook.google.com/path">Facebook</a>
+                             </div>
+                        
+                         </div>
+                        </li>
+                      -->
+                      
+
+    </ul>
+</nav>
+</div>
+ 
+<div class="contentblock">
+
+<section class="animated slideInLeft delay-2s" >
+<div class="content ">
+    <h1>Welcome!</h1>
+    <h3 >Simplfy your fee trasactions and <br>transfer certificate issue process  </h3>
+</div>
+
+</section>
+<!--login popup-->
+<div class="form-popup animated rollIn" id="myForm">
+  <div class="login-cancel"> 
+    <h1>Login</h1> <span id="cancel"> <button type="submit" class="btn cancel" onclick="closeForm()"><strong>X</strong></button></span>
+</div>
+  <form action="/action_page.php" class="form-container">
+ 
+       <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter E-mail" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit" class="btn">Login</button>
+   
+  </form>
+</div>
+<!--login popup ended-->
+
+<div class="complaintbox">
+<div class=" animated wow slideInRight card delay-3s">
+            <div class="card-header"><h3>Complaints Here</h3></div>
+            <div class="textarea">
+               <textarea name="conmplait" id="complaint" cols="50" rows="10"></textarea>
+            
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-block">Submit</button>
+        </div>
+
+</div>
+</div>
+
+</div>
+<div>
+
+  <div class="about wow slideInLeft">
+    <h1>About</h1>
+      <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ipsam assumenda unde adipisci aperiam ab pariatur. Molestias optio impedit ab illo nostrum, vitae quos molestiae fuga ullam illum voluptates laboriosam sequi corporis nobis voluptatem, qui accusamus tempora odit! Voluptatibus fuga adipisci pariatur fugiat. Voluptates quia ab corporis dicta tempora corrupti!</h4>
+      <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur adipisci magni culpa voluptatem aliquid, numquam consequatur doloribus sint, laborum ut ullam velit nesciunt debitis eum dolore? Porro repellat debitis explicabo.</h4>
+      <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia quam veritatis quasi ipsam sapiente earum eveniet, illum aliquid omnis quia qui obcaecati ipsum, debitis quas possimus sequi nostrum unde explicabo voluptates. Necessitatibus labore facere error nulla, exercitationem aperiam tenetur quis!
+      </h4>
+    </div>
+
+
+
+<footer class="jumbotron"> 
+  &copy copyright 2020<br>
+  <a href="#"><i class="fa fa-envelope"></i></a>
+  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <p>+91 9999988888 <br>+91 8888899999</p>
+</footer> 
+</div>
+
+<script src="actions.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>
+</body>
+</html>
