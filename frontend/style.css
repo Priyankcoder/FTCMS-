@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -16,15 +17,15 @@
 
 .content{
     margin: 90px;
-    padding: 10px;
-    color: rgb(2, 6, 255);
+    padding: 0;
+    color: rgb(56, 57, 61);
     padding-left: 0;
-    font-family: 'Uncial Antiqua', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
    
     border-radius: 100px;
 }
 .headname{
-    color: black !important;
+    color: darkslategrey !important;
     font-family: 'Uncial Antiqua', cursive;
 font-family: 'Quicksand', sans-serif;
 }
@@ -34,7 +35,7 @@ font-family: 'Quicksand', sans-serif;
 }
 .backgroundimage{
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.7;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
@@ -46,6 +47,9 @@ font-family: 'Quicksand', sans-serif;
     background-position: center;
 
 }
+.btn{
+  color: #fff !important;
+}
 .jumbotron{
     opacity: 0.70;
     text-align: center;
@@ -56,18 +60,32 @@ font-family: 'Quicksand', sans-serif;
 }
 .complaintbox{
     opacity: 0.70;
-    padding: 9px 0 !important;
+    padding: 0 0 !important;
     box-sizing: border-box;
     margin-top: 12%;
     margin-left: 35%;
+    border: solid black;
+    
 }
 .dropdown{
     z-index: 3;
 }
+.loginbutton{
+    background-color: rgb(139, 33, 139);
+    margin-right: 100px;
+    
+}
+#welcome{
+  color: darkorchid;
+  font-family: 'Libre Franklin', cursive;
+  font-family: 'Lobster', cursive;
+}
 
-
-
-
+.home{
+  width: 100px;
+  height: 100px;
+  font-size: 1.3em;;
+}
 /* Button used to open the contact form - fixed at the bottom of the page */
 /*.open-button {
   background-color: #555;

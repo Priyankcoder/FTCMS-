@@ -105,13 +105,13 @@
     <p class="navbar-brand " ><span id="main_image"><img src="navbar_image.png" ></span><h2 class="headname">Andaman College</h2></p>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a  class="nav-link text-dark" href="#">Home</a>
+            <a  class="nav-link text-dark home" href="#">Home</a>
         </li>
     
         
         <li class="nav-item">
-        <div class="dropdown">
-          <button class=" btn btn-dark dropdown-toggle" data-toggle="dropdown" type="button">Login</button>
+        <div class="dropdown loginbutton">
+          <button class=" btn  dropdown-toggle" data-toggle="dropdown" type="button">Login</button>
          <div class="dropdown-menu">
           <button><a class="dropdown-item dropdown open-button" href="#"  onclick="openForm()">Student Login</a></button>
           <a class="dropdown-item dropdown" href="#">Admin Login</a>
@@ -119,10 +119,11 @@
 
       
         </li>
-        <form class="form-inline" action="/action_page.php">
+      <!--- <form class="form-inline" action="/action_page.php">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-success" type="submit">Search</button>
-        </form>
+        </form
+        >--->
        
         </div>
       <!---<li class="nav-item">
@@ -148,8 +149,8 @@
 
 <section class="animated slideInLeft delay-2s" >
 <div class="content ">
-    <h1>Welcome!</h1>
-    <h3 >Simplfy your fee trasactions and <br>transfer certificate issue process  </h3>
+    <h1 id="welcome">Welcome!</h1>
+    <h3 >Simplfy your fee transactions and <br>transfer certificate issue process.  </h3>
 </div>
 
 </section>
@@ -158,7 +159,8 @@
   <div class="login-cancel"> 
     <h1>Login</h1> <span id="cancel"> <button type="submit" class="btn cancel" onclick="closeForm()"><strong>X</strong></button></span>
 </div>
-  <form action="/action_page.php" class="form-container">
+  
+  <form action="./personal.html" class="form-container">
  
        <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter E-mail" name="email" required>
@@ -166,17 +168,17 @@
     <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit" class="btn">Login</button>
+     <button type="submit" class="btn">Login</button>
    
   </form>
 </div>
 <!--login popup ended-->
 
 <div class="complaintbox">
-<div class=" animated wow slideInRight card delay-3s">
+<div class=" animated slideInRight card delay-3s">
             <div class="card-header"><h3>Complaints Here</h3></div>
             <div class="textarea">
-               <textarea name="conmplait" id="complaint" cols="50" rows="10"></textarea>
+               <textarea name="complaint" id="complaint" cols="50" rows="10"></textarea>
             
         </div>
         <div>
